@@ -2,34 +2,30 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
-public class Window extends JFrame implements ActionListener{
+public class Window extends JFrame implements ActionListener {
     private Drawing drawPanel = new Drawing();
 
-    public Window(String Title, int x, int y)
-    {
+    public Window(String Title, int x, int y) {
 
         super(Title);
-        this.setSize(x,y);
+        this.setSize(x, y);
         this.setVisible(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        Container contentPanel = this.getContentPane() ;
+        Container contentPanel = this.getContentPane();
 
 //MENU
         JMenuBar m = new JMenuBar();
         JMenu menuFile = new JMenu("File");
         JMenu menuAbout = new JMenu("About");
-
-        JMenuItem Open = new JMenuItem("Open") ;
+        JMenuItem Open = new JMenuItem("Open");
         Open.addActionListener(this);
-        JMenuItem New = new JMenuItem("New") ;
+        JMenuItem New = new JMenuItem("New");
         New.addActionListener(this);
-        JMenuItem Save = new JMenuItem("Save") ;
+        JMenuItem Save = new JMenuItem("Save");
         Save.addActionListener(this);
-        JMenuItem Quit = new JMenuItem("Quit") ;
+        JMenuItem Quit = new JMenuItem("Quit");
         Quit.addActionListener(this);
         JMenuItem Credits = new JMenuItem("Credits");
         Credits.addActionListener(this);
@@ -40,30 +36,32 @@ public class Window extends JFrame implements ActionListener{
         menuAbout.add(Credits);
         m.add(menuFile);
         m.add(menuAbout);
-        contentPanel.add(m,"North");
+        contentPanel.add(m, "North");
 
-        JPanel panneau= new JPanel();
-        panneau.setLayout(new GridLayout(2,6));
+        JPanel panneau = new JPanel();
+        panneau.setLayout(new GridLayout(2, 6));
 
 
-//BOUTONS
-
-        JButton Black= new JButton("Black");
+//BUtTONS
+        JButton Black = new JButton("Black");
         Black.addActionListener(this);
-        JButton Yellow= new JButton("Yellow");
+        JButton Yellow = new JButton("Yellow");
         Yellow.addActionListener(this);
-        JButton Red= new JButton("Red");
+        JButton Red = new JButton("Red");
         Red.addActionListener(this);
-        JButton Pink= new JButton("Pink");
+        JButton Pink = new JButton("Pink");
         Pink.addActionListener(this);
-        JButton Green= new JButton("Green");
+        JButton Green = new JButton("Green");
         Green.addActionListener(this);
-        JButton Magenta= new JButton("Magenta");
+        JButton Magenta = new JButton("Magenta");
         Magenta.addActionListener(this);
-        JButton Blue= new JButton("Blue");
+        JButton Blue = new JButton("Blue");
         Blue.addActionListener(this);
-        JButton Orange= new JButton("Orange");
+        JButton Orange = new JButton("Orange");
         Orange.addActionListener(this);
+
+
+        ////Je tentais ici de changer l'apparence du bouton
 
         /*final int BI_WIDTH = 100;
         final int BI_HEIGHT = 50;
@@ -73,13 +71,13 @@ public class Window extends JFrame implements ActionListener{
         JButton Ellipse = new JButton("Ellipse");
         Ellipse.setIcon(new ImageIcon(lineImage)); */
 
-        JButton Ellipse= new JButton("Ellipse");
+        JButton Ellipse = new JButton("Ellipse");
         Ellipse.addActionListener(this);
-        JButton Rectangle= new JButton("Rectangle");
+        JButton Rectangle = new JButton("Rectangle");
         Rectangle.addActionListener(this);
-        JButton Circle= new JButton("Circle");
+        JButton Circle = new JButton("Circle");
         Circle.addActionListener(this);
-        JButton Square= new JButton("Square");
+        JButton Square = new JButton("Square");
         Square.addActionListener(this);
 
         Black.setBackground(Color.black);
@@ -113,10 +111,14 @@ public class Window extends JFrame implements ActionListener{
         panneau.add(Square);
 
 
-        contentPanel.add(panneau,"South");
+        contentPanel.add(panneau, "South");
         contentPanel.add(drawPanel);
         this.setJMenuBar(m);
         this.setVisible(true);
+    }
+
+    public static void main(String args[]) {
+        Window win = new Window("Paint", 800, 600);
     }
 
     @Override
@@ -124,55 +126,55 @@ public class Window extends JFrame implements ActionListener{
         String cmd = e.getActionCommand();
         switch (cmd) {
             case "Black":
-                System.out.println("Black has been selected");
+                System.out.println("Black selected");
                 drawPanel.setC(Color.black);
                 break;
             case "Red":
-                System.out.println("Red has been selected");
+                System.out.println("Red selected");
                 drawPanel.setC(Color.red);
                 break;
             case "Blue":
-                System.out.println("Blue has been selected");
+                System.out.println("Blue selected");
                 drawPanel.setC(Color.blue);
                 break;
             case "green":
-                System.out.println("Green has been selected");
+                System.out.println("Green selected");
                 drawPanel.setC(Color.green);
                 break;
             case "Yellow":
-                System.out.println("Yellow has been selected");
+                System.out.println("Yellow selected");
                 drawPanel.setC(Color.yellow);
                 break;
             case "Pink":
-                System.out.println("Pink has been selected");
+                System.out.println("Pink selected");
                 drawPanel.setC(Color.pink);
                 break;
             case "Magenta":
-                System.out.println("Magenta has been selected");
+                System.out.println("Magenta selected");
                 drawPanel.setC(Color.magenta);
                 break;
             case "Orange":
-                System.out.println("Orange has been selected");
+                System.out.println("Orange selected");
                 drawPanel.setC(Color.orange);
                 break;
             case "Ellipse":
-                System.out.println("Ellipse has been selected");
+                System.out.println("Ellipse selected");
                 drawPanel.setNameFigure("Ellipse");
                 break;
             case "Circle":
-                System.out.println("Circle has been selected");
+                System.out.println("Circle selected");
                 drawPanel.setNameFigure("Circle");
                 break;
             case "Rectangle":
-                System.out.println("Rectangle has been selected");
+                System.out.println("Rectangle selected");
                 drawPanel.setNameFigure("Rectangle");
                 break;
             case "Square":
-                System.out.println("Square has been selected");
+                System.out.println("Square selected");
                 drawPanel.setNameFigure("Square");
                 break;
             case "New":
-                System.out.println("New has been selected");
+                System.out.println("New selected");
                 drawPanel.setList(new ArrayList<>());
                 break;
             case "Open":
@@ -182,9 +184,9 @@ public class Window extends JFrame implements ActionListener{
                     String fileToOpen = chooser.getSelectedFile().getAbsolutePath();
                     drawPanel.read(fileToOpen);
                 } else {
-                    System.out.println("Save has been cancelled");
+                    System.out.println("Save cancelled");
                 }
-                System.out.println("Open has been selected");
+                System.out.println("Open selected");
                 break;
             case "Save":
                 JFileChooser chooser2 = new JFileChooser();
@@ -192,27 +194,23 @@ public class Window extends JFrame implements ActionListener{
                 if (userSelection2 == JFileChooser.APPROVE_OPTION) {
                     String fileToSave = chooser2.getSelectedFile().getAbsolutePath();
                     drawPanel.save(fileToSave);
+                } else {
+                    System.out.println("Save cancelled");
                 }
-                else {
-                    System.out.println("Save has been cancelled");
-                }
-                System.out.println("Save has been selected");
+                System.out.println("Save selected");
                 break;
             case "Quit":
-                System.out.println("Quit has been selected");
+                System.out.println("Quit selected");
                 System.exit(0);
                 break;
             case "Credits":
-                System.out.println("Credits has been selected");
+                System.out.println("Credits selected");
                 JOptionPane Credits = new JOptionPane();
-                Credits.showInternalMessageDialog( Credits, "Authors : Jean-Pierre RIEGEL",
-                        "Credits",JOptionPane.PLAIN_MESSAGE);
+                Credits.showInternalMessageDialog(Credits, "Authors : Jean-Pierre RIEGEL",
+                        "Credits", JOptionPane.PLAIN_MESSAGE);
                 break;
 
         }
-    }
-    public static void main (String args[]){
-        Window win = new Window("New Paint",800,600);
     }
 
 }

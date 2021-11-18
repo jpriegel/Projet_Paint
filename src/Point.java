@@ -1,30 +1,32 @@
-public class Point{
+public class Point {
     private int X;
     private int Y;
 
-    @Override public String toString() {
-        return "("+ this.X + ',' + this.Y +")";
+    public Point(int X, int Y) {
+        this.X = X;
+        this.Y = Y;
     }
 
-    public Point(){
-        X=0;
-        Y=0;
-    }
-
-    public Point(int X, int Y){
-        this.X=X;
-        this.Y=Y;
+    @Override
+    public String toString() {
+        return "(" + this.X + ',' + this.Y + ")";
     }
 
     //GETTER:
-    public int getX(){return X;}
-    public int getY() {return Y;}
+    public int getX() {
+        return X;
+    }
 
     //SETTER:
-    public void setX(int X){
-        this.X=X;
+    public void setX(int X) {
+        this.X = X;
     }
-    public void setY(int Y){
-        this.Y=Y;
+
+    public int getY() {
+        return Y;
+    }
+
+    public void setY(int Y) {
+        this.Y = Y;
     }
 }

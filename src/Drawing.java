@@ -1,39 +1,35 @@
-import javax.swing.*;
+import javax.swing.JPanel;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
-import java.io.*;
 import java.util.ArrayList;
+import java.io.*;
 
 public class Drawing extends JPanel implements MouseMotionListener, MouseListener, Serializable {
-    private Color c;
-    private ArrayList <Figure> list;
     public String nameFigure;
-    int x;
-    int y;
+    Figure figure;
+    private Color c;
+    private ArrayList<Figure> list;
     private Point firstMouseEvent;
     private Point secondMouseEvent;
-    Figure figure;
 
 
-    public Drawing(){
+    public Drawing() {
         super();
         this.setBackground(Color.white);
         list = new ArrayList<>();
-        nameFigure=null;
-        x=0;
-        y=0;
+        nameFigure = null;
         addMouseListener(this);
         addMouseMotionListener(this);
     }
 
-//SETTER
+    //SETTER
     public void setC(Color c) {
         this.c = c;
     }
 
-    public void setList( ArrayList<Figure> list) {
+    public void setList(ArrayList<Figure> list) {
         this.list = list;
     }
 
@@ -74,7 +70,7 @@ public class Drawing extends JPanel implements MouseMotionListener, MouseListene
     }
 
     @Override
-    public void mouseReleased(MouseEvent e){
+    public void mouseReleased(MouseEvent e) {
         secondMouseEvent.setX(e.getX());
         secondMouseEvent.setY(e.getY());
         figure.setBoundingBox(firstMouseEvent, secondMouseEvent);
@@ -112,7 +108,6 @@ public class Drawing extends JPanel implements MouseMotionListener, MouseListene
         setBackground(Color.white);
         for (Figure f : list) { // cette boucle lis la liste et dessine les figures avec les caracteristqiues choisi
             f.draw(g);
-            this.repaint();
         }
     }
 
@@ -149,8 +144,9 @@ public class Drawing extends JPanel implements MouseMotionListener, MouseListene
 
         }
     }
+
     @Override
     public String toString() {
-        return "Drawing [ " + "list=" + list + " ]";
+        return "Drawing [ list= " + list + " ]";
     }
 }

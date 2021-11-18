@@ -1,21 +1,20 @@
-
-
 import java.awt.Color;
 import java.awt.Graphics;
-
 
 public class Rectangle extends Figure {
     protected int longueur;
     protected int largeur;
-    public Rectangle(int px, int py, Color c) {super( new Point(px, py), c );
-        setBoundingBox(0,0);
+
+    public Rectangle(int px, int py, Color c) {
+        super(new Point(px, py), c);
+        setBoundingBox(0, 0);
 
     }
 
     @Override
-    public void setBoundingBox (int widthBB, int heightBB){
-        this.longueur=widthBB;
-        this.largeur=heightBB;
+    public void setBoundingBox(int widthBB, int heightBB) {
+        this.longueur = widthBB;
+        this.largeur = heightBB;
     }
 
 
@@ -32,38 +31,6 @@ public class Rectangle extends Figure {
         longueur = Math.abs(end.getX() - start.getX());
         largeur = Math.abs(end.getY() - start.getY());
     }
-    /*
-    @Override
-    protected void setBoundingBox(Point start, Point end) {
-
-        if (start.getX() < end.getX() & start.getY() < end.getY()) { //tire vers en bas à droite
-            longueur = (end.getX() - start.getX());
-            largeur = (end.getY() - start.getY());
-        }
-
-        else if (end.getX() < start.getX() & start.getY() < end.getY()) { // Tire en bas à gauche
-            Point startBis = new Point(end.getX(), start.getY());
-            Point endBis = new Point(start.getX(), end.getY());
-            super.start = startBis;
-            longueur = (endBis.getX() - startBis.getX());
-            largeur = (endBis.getY() - startBis.getY());
-        }
-
-        else if (start.getX() < end.getX() & end.getY() < start.getY()) { // tire en haut à droite
-            Point startBis = new Point(start.getX(), end.getY());
-            Point endBis = new Point(end.getX(), start.getY());
-            super.start= startBis;
-            longueur = (endBis.getX() - startBis.getX());
-            largeur = (endBis.getY() - startBis.getY());
-        }
-        else if (end.getX() < start.getX() & end.getY() < start.getY()) { // tire en haut à gauche
-            Point startBis = new Point(end.getX(), end.getY());
-            Point endBis = new Point(start.getX(), start.getY());
-            super.start= startBis;
-            longueur = (endBis.getX() - startBis.getX());
-            largeur = (endBis.getY() - startBis.getY());
-        }
-    }*/
 
     @Override
     public void draw(Graphics g) {
@@ -74,7 +41,7 @@ public class Rectangle extends Figure {
 
     @Override
     public String toString() {
-        return "Rectangle [length=" + longueur + " | width=" + largeur + " | origin:" + getStart() +"]";
+        return "Rectangle [length=" + longueur + " | width=" + largeur + " | origin:" + getStart() + "]";
     }
 
 
